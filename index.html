@@ -20,6 +20,8 @@
 
 		<!-- Plugin CSS -->
 		<link rel="stylesheet" href="css/animate.min.css" type="text/css">
+		<link rel="stylesheet" href="plugins/slick/slick/slick.css" type="text/css">
+
 
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="css/normalize.css" type="text/css">
@@ -92,7 +94,7 @@
 					</div>
 					<div class="col-md-6">
 						<div class="hero-img-box">
-							<img src="img/hero-img.png" class="hero-img img-responsive" alt="Hero Image">
+							<img src="img/hero-img01.png" class="hero-img img-responsive" alt="Hero Image">
 						</div>
 					</div>
 				</div>
@@ -136,7 +138,50 @@
 								</h2>
 							</div>
 							<div class="col-md-12">
-								
+								<div class="my-pet-carousel">
+									<div class="pet-box text-center">
+										<img src="img/cat01.png" class="pets-img img-responsive" alt="Pet Image">
+										<div class="pet-dsc">
+											<p class="pet-name">Katerine</p>
+											<a class="btn btn-style btn-style-color2">Learn More</a>
+										</div>
+									</div>
+									<div class="pet-box text-center">
+										<img src="img/cat01.png" class="pets-img img-responsive" alt="Pet Image">
+										<div class="pet-dsc">
+											<p class="pet-name">Jennifer</p>
+											<a class="btn btn-style btn-style-color2">Learn More</a>
+										</div>
+									</div>
+									<div class="pet-box text-center">
+										<img src="img/cat01.png" class="pets-img img-responsive" alt="Pet Image">
+										<div class="pet-dsc">
+											<p class="pet-name">Woody</p>
+											<a class="btn btn-style btn-style-color2">Learn More</a>
+										</div>
+									</div>
+									<div class="pet-box text-center">
+										<img src="img/cat01.png" class="pets-img img-responsive" alt="Pet Image">
+										<div class="pet-dsc">
+											<p class="pet-name">Katerine</p>
+											<a class="btn btn-style btn-style-color2">Learn More</a>
+										</div>
+									</div>
+									<div class="pet-box text-center">
+										<img src="img/cat01.png" class="pets-img img-responsive" alt="Pet Image">
+										<div class="pet-dsc">
+											<p class="pet-name">Jennifer</p>
+											<a class="btn btn-style btn-style-color2">Learn More</a>
+										</div>
+									</div>
+									<div class="pet-box text-center">
+										<img src="img/cat01.png" class="pets-img img-responsive" alt="Pet Image">
+										<div class="pet-dsc">
+											<p class="pet-name">Woody</p>
+											<a class="btn btn-style btn-style-color2">Learn More</a>
+										</div>
+									</div>
+								</div>
 							</div>
 							<div class="col-md-12 text-center">
 								<a class="btn btn-style btn-style-color1">Get to know the rest</a>
@@ -291,6 +336,7 @@
 
 		<!-- Plugin JavaScript -->
 		<script src="js/wow.min.js"></script>
+		<script src="plugins/slick/slick/slick.min.js"></script>
 
 		<!-- Custom Theme JavaScript -->
 		<script src="js/custom.js"></script>
@@ -312,6 +358,34 @@
 					
 				}); 
 				
+			});
+
+			 $(document).ready(function(){
+				$('.my-pet-carousel').slick({
+					infinite: true,
+					speed: 500,
+					slidesToShow: 3,
+					slidesToScroll: 3,
+					adaptiveHeight: true,
+					padding: '60px',
+					responsive: [
+					{
+						breakpoint: 992,
+						settings: {
+							slidesToShow: 2,
+							slidesToScroll: 2
+						}
+					},
+						{
+						breakpoint: 700,
+						settings: {
+							slidesToShow: 1,
+							slidesToScroll: 1
+						}
+					}
+					]
+	
+				});
 			});
 
 			// Script needed to inite the WOW JS animation plugin: 
