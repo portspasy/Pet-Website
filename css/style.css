@@ -1,0 +1,568 @@
+/*!
+ * Project Name:  Pets Website;
+ * Date: 15/06/2018;
+ * Author: PortSpasy.
+ */
+
+
+
+/*************************************************************
+00. Fonts CSS
+*************************************************************/
+
+@font-face {
+	font-family: 'neutra_textbook_alt';
+	src: url('../fonts/Neutra/neutratext-bookalt-webfont.eot');
+	src: url('../fonts/Neutra/neutratext-bookalt-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/Neutra/neutratext-bookalt-webfont.woff2') format('woff2'),
+		 url('../fonts/Neutra/neutratext-bookalt-webfont.woff') format('woff'),
+		 url('../fonts/Neutra/neutratext-bookalt-webfont.ttf') format('truetype'),
+		 url('../fonts/Neutra/neutratext-bookalt-webfont.svg#neutra_textbook_alt') format('svg');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+@font-face {
+	font-family: 'archerpromedium';
+	src: url('../fonts/Archer/archerpro_medium-webfont.eot');
+	src: url('../fonts/Archer/archerpro_medium-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/Archer/archerpro_medium-webfont.woff2') format('woff2'),
+		 url('../fonts/Archer/archerpro_medium-webfont.woff') format('woff'),
+		 url('../fonts/Archer/archerpro_medium-webfont.ttf') format('truetype'),
+		 url('../fonts/Archer/archerpro_medium-webfont.svg#archerpromedium') format('svg');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+@font-face {
+	font-family: 'news_gothic';
+	src: url('../fonts/NewsGothic/news_gothic_oblique-webfont.eot');
+	src: url('../fonts/NewsGothic/news_gothic_oblique-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/NewsGothic/news_gothic_oblique-webfont.woff2') format('woff2'),
+		 url('../fonts/NewsGothic/news_gothic_oblique-webfont.woff') format('woff'),
+		 url('../fonts/NewsGothic/news_gothic_oblique-webfont.ttf') format('truetype'),
+		 url('../fonts/NewsGothic/news_gothic_oblique-webfont.svg#news_gothicoblique') format('svg');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+/*****************************************
+00. CSS Variables 
+*****************************************/
+
+:root {
+	--color-primary: #f1cdb3;
+	--color-secondary: #fddcc4;
+
+	--light-gray-01: #fafafa; 
+	--light-gray-02: #f6f6f6; 
+	--light-gray-03: #b2b2b2;
+
+    --color-white: #fff;
+	--color-black: #000;
+	--color-text: #545454;
+
+	--my-width: 1170px;
+}
+
+
+html {
+text-rendering: optimizeLegibility !important;
+-webkit-font-smoothing: antialiased !important;
+-moz-osx-font-smoothing: grayscale !important;
+text-rendering: optimizeLegibility !important;
+text-rendering: geometricPrecision !important;
+font-smooth: always !important;
+font-smoothing: antialiased !important;
+-moz-font-smoothing: antialiased !important;
+-webkit-font-smoothing: antialiased !important;
+-webkit-font-smoothing: subpixel-antialiased !important;
+}
+
+body {
+	padding:0px !important;
+	margin:0px !important;
+	text-rendering:optimizeLegibility;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	color: var(--color-text);
+}
+
+
+a {
+	color: #f05f40;
+	-webkit-transition: all .35s;
+	   -moz-transition: all .35s;
+	        transition: all .35s;
+}
+
+*:focus {
+	outline: none;
+}
+
+*::-moz-focus-inner {
+	border: 0;
+}
+
+a:hover,
+a:focus { 
+	color: #eb3812; 
+}
+
+a, 
+a:hover, 
+a:active, 
+a:focus {
+  text-decoration:none; 
+  outline: 0; 
+}
+
+input[readonly="readonly"] { 
+	background-color: #fff !important; 
+	cursor: pointer;
+}
+
+/*Hide HTML5 Spinners*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+	-webkit-appearance: none; 
+	   -moz-appearance: none; 
+	   			margin: 0; 
+}
+
+input[type=number] { 
+	-moz-appearance: textfield;
+}
+
+input::-moz-focus-inner { 
+	border: 0; 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	margin: 0;
+}
+
+p {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	line-height: 24px;
+	margin-bottom: 20px;
+}
+
+section {
+	padding: 70px 0;
+}
+
+
+
+
+/******************************************************
+01.General CSS 
+******************************************************/
+.my-wrapper {
+	max-width: var(--my-width);
+    margin: 0 auto;
+    background-color: var(--color-white);
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+img {
+	margin: 0 auto;
+}
+
+.no-padding {
+	padding: 0 !important;
+}
+
+.no-margin {
+	margin: 0 !important;
+}
+
+.my-flex {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.btn-style {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size: 17px;
+	letter-spacing: 0.06em;
+	border: none;
+	padding: 15px 45px;
+	border-radius: 100px;
+	color: var(--color-text);
+}
+
+.btn-style-color1 {
+	background-color: var(--color-primary);
+}
+
+.btn-style-color1:hover,
+.btn-style-color1:focus {
+	background-color: var(--color-secondary) !important;
+}
+
+
+/******************************************************
+02. Header CSS 
+******************************************************/
+.header {
+	
+}
+
+.logo {
+	width: 180px;
+}
+
+.navbar {
+	background-color: transparent;
+	border: none;
+	padding: 60px 0;
+	margin: 0;
+}
+
+.navbar-brand {
+	height: auto;
+}
+
+.menu-link:link {
+	font-size: 15px;
+	color: var(--color-white) !important;
+}
+
+.nav .active-link::after {
+	content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+	background-color: var(--color-primary);
+}
+
+.scrolled-nav .navbar {
+	background-color: rgba(0, 0, 0, .3);
+	padding: 10px;
+}
+
+.scrolled-nav .logo {
+	width: 160px;
+}
+
+
+/******************************************************
+03. Hero CSS 
+******************************************************/
+.hero {
+	background-image: url(../img/hero-bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	overflow: hidden;
+	padding: 300px 0 250px;
+}
+
+.hero-title {
+	font-size: 44px;
+	line-height: 57px;
+	letter-spacing: 0.06em;
+	color: var(--color-white);
+}
+.hero-paragraph {
+	font-size: 15px;
+	line-height: 24px;
+	letter-spacing: 0.025em;
+	color: var(--color-white);
+	margin: 40px 0;
+}
+
+.hero-img-box {
+	min-height: 300px;
+}
+
+.hero-img {
+	width: 500px;
+	max-width: 100%;
+	position: absolute;
+	bottom: -300px;
+}
+
+
+
+
+/******************************************************
+04. About CSS 
+******************************************************/
+.about {
+	padding: 90px 0;
+	background-color: var(--light-gray-01);
+}
+
+.about-header {
+	font-size: 35px;
+	line-height: 45px;
+	letter-spacing: 0.06em;
+	color: var(--color-text);
+	margin-bottom: 35px;
+}
+
+.about-paragraph:not(:last-child) {
+	margin-bottom: 30px;
+}
+
+
+/******************************************************
+05. Pets CSS 
+******************************************************/
+.pets {
+	padding: 80px 0;
+	background-color: var(--light-gray-02);
+}
+
+.pets-header {
+	font-size: 35px;
+	line-height: 45px;
+	letter-spacing: 0.06em;
+	color: var(--color-text);
+	margin-bottom: 75px;
+}
+
+
+/******************************************************
+06. Help CSS 
+******************************************************/
+.help {
+	background-color: var(--light-gray-01);
+	padding: 75px 0 35px;
+}
+
+.help-header {
+	font-size: 35px;
+	line-height: 45px;
+	letter-spacing: 0.06em;
+	color: var(--color-text);
+	margin-bottom: 75px;
+}
+
+.help-img {
+	width: 75px;
+	max-width: 100%;
+	margin-bottom: 10px;
+}
+
+.help-list {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.help-list li {
+	width: 20%;
+
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size: 20px;
+	letter-spacing: 0.06em;
+	margin-bottom: 45px;
+}
+
+/******************************************************
+07. Donation CSS 
+******************************************************/
+.donation {
+	padding: 75px 0;
+	background-color: var(--light-gray-02);
+}
+
+.donation-header {
+	font-size: 35px;
+	line-height: 45px;
+	letter-spacing: 0.06em;
+	color: var(--color-text);
+	margin-bottom: 20px;
+}
+
+.donate-paragraph {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size: 15px;
+	letter-spacing: 0.06em;
+	margin-bottom: 15px;
+}
+
+.donate-number {
+	display: inline-flex;
+	align-items: center;
+
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 20px;
+	letter-spacing: 0.06em;
+	padding: 10px 15px;
+	background-color: var(--color-primary);
+	border-radius: 10px;
+	margin-bottom: 35px;
+}
+
+.donate-number .mr {
+	margin-right: 15px;
+}
+
+.donate-number .mt {
+	margin-top: 3px;
+}
+
+.legal-paragraph {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: var(--light-gray-03);
+	font-style: italic;
+}
+
+
+
+/******************************************************
+08. Footer CSS 
+******************************************************/
+.footer {
+	background-image: url(../img/footer-bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	overflow: hidden;
+	padding: 80px 0 70px;
+}
+
+.footer-header {
+	font-size: 35px;
+	line-height: 45px;
+	letter-spacing: 0.06em;
+	color: var(--color-white);
+	padding-left: 5px;
+	margin-bottom: 35px;
+}
+
+.footer ul li {
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 20px;
+	letter-spacing: 0.06em;
+	color: var(--color-primary);
+}
+
+.footer ul li:not(:last-child) {
+	margin-bottom: 20px;
+}
+
+.footer-flex {
+	display: inline-flex;
+    align-items: center;
+}
+
+.footer-img {
+	width: 320px;
+	max-width: 100%;
+	position: absolute;
+	bottom: -85px;
+}
+
+.footer .mr {
+	margin-right: 15px;
+}
+
+/* .footer .mt {
+	margin-top: 3px;
+} */
+
+.footer-img-box {
+	min-height: 240px;
+}
+
+
+/******************************************************
+09. Up Button CSS 
+******************************************************/
+
+
+
+
+/******************************************************
+10. Media Queries 
+******************************************************/
+
+
+
+
+	/*==========  Non-Mobile First Method  ==========*/
+
+		/* Large Devices, Wide Screens */
+		@media only screen and (max-width : 1200px) {  
+		}
+
+		/* Medium Devices, Desktops */
+		@media only screen and (max-width : 992px) {
+			.help-list li {
+				width: 25%;
+			}
+		}
+
+
+		/* Small Devices, Tablets */
+		@media only screen and (max-width : 768px) {
+			.help-list li {
+				width: 33.33%;
+				font-size: 18px;
+			}
+			.help-img {
+				width: 65px;
+			}
+		}
+
+		@media only screen and (max-width : 555px) {
+			.help-list li {
+				width: 50%;
+			}
+		}
+
+		/* Extra Small Devices, Phones */ 
+		@media only screen and (max-width : 480px) {
+		}
+
+		@media only screen and (max-width : 360px) {
+			.help-list li {
+				width: 100%;
+				margin-bottom: 60px;
+			}
+		}
+
+		/* Custom, iPhone Retina */ 
+		@media only screen and (max-width : 320px) { 
+		}
